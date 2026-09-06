@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سوفيتيل الجزائر حَمّة جاردن | فندق فاخر خمس نجوم في الجزائر العاصمة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FBF9F3;
+    --ivory-deep:#F3EEE2;
+    --ink:#15242C;
+    --navy:#12222C;
+    --sea:#1D5B79;
+    --sea-deep:#123545;
+    --brass:#B8863C;
+    --brass-light:#D9AE6C;
+    --garden:#45604A;
+    --text:#20211D;
+    --text-soft:#5B5A52;
+    --line: rgba(184,134,60,.28);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ivory);
+    color:var(--text);
+    font-family:'Tajawal', 'Work Sans', sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,.brand{
+    font-family:'El Messiri','Bodoni Moda', serif;
+    font-weight:700;
+    color:var(--navy);
+    letter-spacing:.2px;
+  }
+  .lat{ font-family:'Bodoni Moda', serif; }
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- zellige divider ---------- */
+  .zellige{
+    height:34px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='34' viewBox='0 0 64 34'%3E%3Cg fill='none' stroke='%23B8863C' stroke-width='1' opacity='0.55'%3E%3Cpath d='M0 17 L16 0 L32 17 L16 34 Z'/%3E%3Cpath d='M32 17 L48 0 L64 17 L48 34 Z'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat:repeat-x;
+    background-position:center;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:fixed; inset:0 0 auto 0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 40px;
+    background:linear-gradient(to bottom, rgba(18,34,44,.75), transparent);
+    transition:background .4s ease, padding .4s ease;
+  }
+  header.solid{ background:var(--ivory); box-shadow:0 2px 18px rgba(0,0,0,.07); padding:10px 40px; }
+  header .brand{ color:#fff; font-size:1.35rem; }
+  header.solid .brand{ color:var(--navy); }
+  nav ul{list-style:none; display:flex; gap:30px;}
+  nav a{color:#f2ede0; font-size:.95rem; font-weight:500; position:relative; padding-bottom:4px;}
+  header.solid nav a{color:var(--text);}
+  nav a::after{
+    content:''; position:absolute; right:0; bottom:0; width:0; height:1px; background:var(--brass);
+    transition:width .35s ease;
+  }
+  nav a:hover::after{width:100%;}
+  .nav-toggle{display:none;}
+
+  /* ---------- buttons: خرافي animation ---------- */
+  .btn{
+    position:relative; display:inline-flex; align-items:center; gap:10px;
+    padding:15px 34px; font-family:'Tajawal',sans-serif; font-weight:700; font-size:.95rem;
+    border:1px solid var(--brass); color:var(--brass); background:transparent;
+    overflow:hidden; cursor:pointer; isolation:isolate; letter-spacing:.3px;
+    transition:color .45s cubic-bezier(.65,0,.35,1), border-color .45s ease, transform .25s ease, box-shadow .4s ease;
+  }
+  .btn::before{
+    content:''; position:absolute; inset:0; z-index:-1;
+    background:linear-gradient(100deg, var(--brass) 0%, var(--brass-light) 50%, var(--brass) 100%);
+    transform:translateX(102%); transition:transform .5s cubic-bezier(.65,0,.35,1);
+  }
+  .btn::after{
+    content:''; position:absolute; top:0; bottom:0; width:38%;
+    background:rgba(255,255,255,.5); filter:blur(6px);
+    transform:translateX(-160%) skewX(-18deg); opacity:0;
+  }
+  .btn:hover{ color:var(--navy); border-color:var(--brass-light); box-shadow:0 10px 26px -8px rgba(184,134,60,.55); }
+  .btn:hover::before{ transform:translateX(0%); }
+  .btn:hover::after{ animation:shine 1.05s ease forwards; }
+  .btn:active{ transform:scale(.96); }
+  @keyframes shine{
+    0%{ transform:translateX(-160%) skewX(-18deg); opacity:0; }
+    35%{ opacity:.9; }
+    100%{ transform:translateX(220%) skewX(-18deg); opacity:0; }
+  }
+  .btn-solid{ background:var(--navy); color:#fff; border-color:var(--navy); }
+  .btn-solid::before{ background:linear-gradient(100deg, var(--brass) 0%, var(--brass-light) 50%, var(--brass) 100%); }
+  .btn-solid:hover{ color:var(--navy); }
+  .btn-ghost-light{ border-color:rgba(255,255,255,.7); color:#fff; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative; height:100vh; min-height:640px;
+    display:flex; align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    transform:scale(1.08);
+    animation:heroZoom 9s ease-out forwards;
+  }
+  @keyframes heroZoom{ to{ transform:scale(1); } }
+  .hero::before{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(12,22,28,.35) 0%, rgba(12,22,28,.15) 35%, rgba(10,18,22,.86) 100%);
+  }
+  .hero-content{
+    position:relative; z-index:2; width:100%;
+    padding:0 40px 90px;
+    display:flex; justify-content:center;
+  }
+  .hero-panel{
+    max-width:760px; text-align:center; color:#fff;
+    opacity:0; transform:translateY(26px);
+    animation:rise 1.1s .35s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  @keyframes rise{ to{ opacity:1; transform:translateY(0); } }
+  .hero-eyebrow{ color:var(--brass-light); font-size:.85rem; letter-spacing:2px; margin-bottom:18px; }
+  .hero-panel h1{
+    color:#fff; font-size:clamp(2.4rem,5.4vw,4.1rem); line-height:1.12; margin-bottom:20px;
+  }
+  .hero-panel p{ color:#e9e4d6; font-size:1.12rem; max-width:600px; margin:0 auto 34px; }
+  .hero-cta{ display:flex; gap:18px; justify-content:center; flex-wrap:wrap; }
+  .scroll-cue{
+    position:absolute; bottom:26px; left:50%; transform:translateX(-50%); z-index:2;
+    width:1px; height:52px; background:rgba(255,255,255,.5);
+  }
+  .scroll-cue::after{
+    content:''; position:absolute; top:0; right:-3px; width:7px; height:7px; border-radius:50%;
+    background:var(--brass-light);
+    animation:drip 2.1s ease-in-out infinite;
+  }
+  @keyframes drip{ 0%{top:0; opacity:1;} 90%{opacity:0;} 100%{top:100%; opacity:0;} }
+
+  /* ---------- section basics ---------- */
+  section{ padding:110px 0; position:relative; }
+  .eyebrow-line{
+    display:flex; align-items:center; gap:14px; color:var(--brass); font-weight:700; font-size:.9rem; margin-bottom:18px;
+  }
+  .eyebrow-line::before{ content:''; width:34px; height:1px; background:var(--brass); }
+  h2.section-title{ font-size:clamp(1.9rem,3.3vw,2.7rem); max-width:640px; margin-bottom:22px; }
+  .section-lede{ color:var(--text-soft); max-width:560px; font-size:1.06rem; }
+
+  /* ---------- arch frame (signature motif) ---------- */
+  .arch{
+    position:relative; overflow:hidden;
+    border-radius:220px 220px 8px 8px;
+    box-shadow:0 30px 60px -25px rgba(18,34,44,.45);
+  }
+  .arch img{ width:100%; height:100%; object-fit:cover; transition:transform 1.4s cubic-bezier(.2,.8,.2,1); }
+  .arch:hover img{ transform:scale(1.06); }
+
+  /* ---------- intro / about ---------- */
+  .about{ display:grid; grid-template-columns:.85fr 1.15fr; gap:64px; align-items:center; }
+  .about .arch{ height:560px; }
+  .about-figures{ display:flex; gap:36px; margin-top:36px; flex-wrap:wrap; }
+  .about-figures div strong{ display:block; font-family:'El Messiri',serif; font-size:1.9rem; color:var(--navy); }
+  .about-figures div span{ color:var(--text-soft); font-size:.88rem; }
+
+  /* ---------- rooms ---------- */
+  .rooms{ background:var(--navy); color:#eee7d8; }
+  .rooms .eyebrow-line{ color:var(--brass-light); }
+  .rooms .eyebrow-line::before{ background:var(--brass-light); }
+  .rooms h2.section-title, .rooms h2.section-title *{ color:#fff; }
+  .rooms .section-lede{ color:#c7c2b1; }
+  .room-grid{
+    margin-top:56px; display:grid; grid-template-columns:repeat(3,1fr); gap:30px;
+  }
+  .room-card{ position:relative; }
+  .room-card .frame{
+    height:320px; overflow:hidden; border-radius:6px 60px 6px 60px;
+  }
+  .room-card img{ width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(.2,.8,.2,1), filter .6s ease; filter:saturate(.92); }
+  .room-card:hover img{ transform:scale(1.08); filter:saturate(1.05); }
+  .room-card .cap{ padding-top:20px; display:flex; justify-content:space-between; align-items:flex-start; gap:14px; border-top:1px solid rgba(217,174,108,.28); }
+  .room-card h4{ color:#fff; font-size:1.15rem; margin-bottom:6px; }
+  .room-card p{ color:#b7b1a0; font-size:.88rem; }
+  .room-card .view-tag{ color:var(--brass-light); font-size:.78rem; white-space:nowrap; padding-top:3px; }
+
+  /* ---------- dining ---------- */
+  .dining-grid{ margin-top:56px; display:grid; grid-template-columns:1.15fr .85fr .85fr; grid-template-rows:auto auto; gap:26px; }
+  .dine-card{ position:relative; border-radius:4px; overflow:hidden; min-height:300px; display:flex; align-items:flex-end; }
+  .dine-card.tall{ grid-row:span 2; min-height:100%; }
+  .dine-card img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform 1s cubic-bezier(.2,.8,.2,1); }
+  .dine-card:hover img{ transform:scale(1.07); }
+  .dine-card::before{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(12,20,16,.9) 0%, rgba(12,20,16,.05) 55%); }
+  .dine-info{ position:relative; z-index:1; padding:26px; color:#fff; }
+  .dine-info .kicker{ font-size:.75rem; letter-spacing:1.5px; color:var(--brass-light); margin-bottom:8px; }
+  .dine-info h4{ color:#fff; font-size:1.3rem; margin-bottom:8px; }
+  .dine-info p{ color:#e3ded0; font-size:.9rem; max-width:340px; }
+
+  /* ---------- wellness ---------- */
+  .wellness{ display:grid; grid-template-columns:1fr 1fr; gap:0; align-items:stretch; }
+  .wellness .arch-wrap{ position:relative; }
+  .wellness .arch{ height:100%; min-height:520px; border-radius:0 260px 0 0; }
+  .wellness-text{ background:var(--ivory-deep); display:flex; flex-direction:column; justify-content:center; padding:70px; }
+  .wellness-list{ margin-top:28px; display:flex; flex-direction:column; gap:22px; }
+  .wellness-list li{ list-style:none; display:flex; gap:16px; align-items:flex-start; }
+  .wellness-list .dot{ width:8px; height:8px; border-radius:50%; background:var(--brass); margin-top:9px; flex:none; }
+  .wellness-list strong{ display:block; color:var(--navy); margin-bottom:2px; }
+  .wellness-list span{ color:var(--text-soft); font-size:.92rem; }
+
+  /* ---------- events ---------- */
+  .events{ background:var(--sea-deep); color:#fff; text-align:center; }
+  .events .eyebrow-line{ justify-content:center; color:var(--brass-light); }
+  .events .eyebrow-line::before, .events .eyebrow-line::after{ background:var(--brass-light); }
+  .events .eyebrow-line::after{ content:''; width:34px; height:1px; }
+  .events h2{ color:#fff; margin:0 auto 20px; }
+  .events p.section-lede{ color:#cfe2ea; margin:0 auto 50px; }
+  .events-grid{ display:grid; grid-template-columns:1fr 1fr; gap:30px; text-align:right; }
+  .event-card{ background:rgba(255,255,255,.05); border:1px solid rgba(217,174,108,.3); padding:34px; border-radius:4px; }
+  .event-card img{ width:100%; height:210px; object-fit:cover; margin-bottom:22px; border-radius:2px; }
+  .event-card h4{ color:#fff; margin-bottom:10px; }
+  .event-card p{ color:#c9d6da; font-size:.92rem; }
+
+  /* ---------- reservation ---------- */
+  .reserve{ background:var(--ivory); }
+  .reserve-box{
+    background:#fff; border:1px solid var(--line); border-radius:6px;
+    display:grid; grid-template-columns:1fr 1.3fr;
+    box-shadow:0 40px 80px -40px rgba(18,34,44,.3);
+  }
+  .reserve-media{ position:relative; min-height:100%; }
+  .reserve-media img{ width:100%; height:100%; object-fit:cover; }
+  .reserve-media::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 55%, rgba(12,20,16,.75)); }
+  .reserve-media .quote{ position:absolute; bottom:26px; right:26px; left:26px; color:#fff; font-family:'El Messiri',serif; font-size:1.15rem; }
+  .reserve-form{ padding:52px; }
+  .reserve-form h3{ font-size:1.7rem; margin-bottom:8px; }
+  .reserve-form > p{ color:var(--text-soft); margin-bottom:30px; font-size:.94rem; }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px; }
+  .field{ display:flex; flex-direction:column; gap:6px; }
+  .field label{ font-size:.8rem; color:var(--text-soft); font-weight:500; }
+  .field input, .field select{
+    border:none; border-bottom:1.5px solid #ddd6c4; background:transparent; padding:10px 2px;
+    font-family:'Tajawal',sans-serif; font-size:.98rem; color:var(--text);
+    transition:border-color .3s ease;
+  }
+  .field input:focus, .field select:focus{ outline:none; border-color:var(--brass); }
+  .form-actions{ margin-top:10px; display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+  .form-note{ font-size:.78rem; color:#9a927e; }
+  #confirmMsg{
+    display:none; margin-top:22px; padding:16px 18px; border:1px solid var(--line); background:var(--ivory-deep);
+    color:var(--garden); font-size:.92rem; border-radius:4px;
+  }
+
+  /* ---------- location / footer ---------- */
+  .location{ display:grid; grid-template-columns:1fr 1fr; }
+  .loc-info{ background:var(--navy); color:#eee7d8; padding:90px 60px; }
+  .loc-info h2{ color:#fff; }
+  .loc-list{ margin-top:34px; display:flex; flex-direction:column; gap:20px; }
+  .loc-list div{ display:flex; gap:16px; }
+  .loc-list strong{ color:#fff; display:block; margin-bottom:3px; font-weight:600;}
+  .loc-list span{ color:#b7b1a0; font-size:.92rem; }
+  .map-embed{ min-height:420px; filter:saturate(.85) contrast(1.05); }
+  .map-embed iframe{ width:100%; height:100%; min-height:420px; border:0; display:block; }
+
+  footer{ background:#0e1a20; color:#8b9297; padding:56px 0 26px; }
+  .foot-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,.08); }
+  .foot-top .brand{ color:#fff; font-size:1.3rem; margin-bottom:10px; }
+  .foot-social{ display:flex; gap:16px; margin-top:16px; }
+  .foot-social a{ width:36px; height:36px; border:1px solid rgba(255,255,255,.2); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:.3s; }
+  .foot-social a:hover{ border-color:var(--brass); color:var(--brass); }
+  .foot-bottom{ padding-top:22px; display:flex; justify-content:space-between; font-size:.82rem; flex-wrap:wrap; gap:10px; }
+
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (max-width:980px){
+    .about, .wellness, .location, .reserve-box{ grid-template-columns:1fr; }
+    .about .arch{ height:340px; }
+    .wellness .arch{ border-radius:0 0 160px 0; min-height:340px; }
+    .room-grid{ grid-template-columns:1fr 1fr; }
+    .dining-grid{ grid-template-columns:1fr 1fr; }
+    .dine-card.tall{ grid-row:auto; min-height:300px; }
+    .events-grid{ grid-template-columns:1fr; }
+    nav{ display:none; }
+    header{ padding:16px 22px; }
+  }
+  @media (max-width:640px){
+    .room-grid{ grid-template-columns:1fr; }
+    .dining-grid{ grid-template-columns:1fr; }
+    .form-row{ grid-template-columns:1fr; }
+    .loc-info{ padding:60px 26px; }
+    section{ padding:76px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <span class="brand">Sofitel <span style="font-weight:400;">Algiers</span></span>
+  <nav>
+    <ul>
+      <li><a href="#about">الفندق</a></li>
+      <li><a href="#rooms">الغرف والأجنحة</a></li>
+      <li><a href="#dining">المطاعم</a></li>
+      <li><a href="#wellness">العافية</a></li>
+      <li><a href="#events">المناسبات</a></li>
+      <li><a href="#location">الموقع</a></li>
+    </ul>
+  </nav>
+  <a href="#reserve" class="btn btn-ghost-light" style="padding:11px 24px;">احجز إقامتك</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_4866521:8by10?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=1400&hei=1750&qlt=85" alt="واجهة فندق سوفيتيل الجزائر حَمّة جاردن">
+  <div class="hero-content">
+    <div class="hero-panel">
+      <div class="hero-eyebrow">فندق خمس نجوم · الجزائر العاصمة</div>
+      <h1>سوفيتيل الجزائر<br>حَمّة جاردن</h1>
+      <p>في قلب "المدينة البيضاء"، على أعتاب حديقة التجارب النباتية وإطلالة على خليج الجزائر، تنتظرك إقامة تجمع بين الفخامة الفرنسية والروح الجزائرية الأصيلة.</p>
+      <div class="hero-cta">
+        <a href="#reserve" class="btn btn-solid">احجز إقامتك الآن</a>
+        <a href="#about" class="btn btn-ghost-light">اكتشف الفندق</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"></div>
+</section>
+
+<div class="zellige"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about">
+    <div class="arch reveal">
+      <img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_6776346:8by10?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=900&hei=1120&qlt=85" alt="لوبي فندق سوفيتيل الجزائر بطراز آرت ديكو">
+    </div>
+    <div class="reveal">
+      <div class="eyebrow-line">قصة المكان</div>
+      <h2 class="section-title">حيث يلتقي أناقة باريس بروح الجزائر البيضاء</h2>
+      <p class="section-lede">
+        يقع الفندق في شارع حسيبة بن بوعلي، محاذياً مباشرة لحديقة التجارب (جنان الحامة) الأسطورية، على بعد خطوات من مكتبة الجزائر الوطنية ونصب الشهداء، وعلى مقربة من وسط المدينة. نسائم البحر تصل شرفات مطاعمنا وبارنا ذي الطراز الآرت ديكو المطل مباشرة على خليج الجزائر.
+      </p>
+      <p class="section-lede" style="margin-top:16px;">
+        333 غرفة وجناحاً، مصممة لتمنحك إطلالة إما على المدينة النابضة أو على اخضرار الحديقة النباتية المجاورة — فخامة هادئة على بعد 20 دقيقة فقط من مطار هواري بومدين الدولي.
+      </p>
+      <div class="about-figures">
+        <div><strong>333</strong><span>غرفة وجناح</span></div>
+        <div><strong>23</strong><span>جناحاً فسيحاً</span></div>
+        <div><strong>3</strong><span>مطاعم ذواقة</span></div>
+        <div><strong>20 د</strong><span>من المطار</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section id="rooms" class="rooms">
+  <div class="wrap">
+    <div class="eyebrow-line">الإقامة</div>
+    <h2 class="section-title">غرف وأجنحة مصممة للراحة والتأمل</h2>
+    <p class="section-lede">من غرفة سوبيريور الأنيقة إلى جناح الأوبرا الفسيح، كل مساحة مجهزة بأسرّة Sofitel MyBed الفاخرة، ومستحضرات Lanvin، وإنترنت عالي السرعة.</p>
+
+    <div class="room-grid">
+      <div class="room-card reveal">
+        <div class="frame"><img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_1320194:4by3?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=760&hei=570&qlt=85" alt="غرفة لوكس بإطلالة على الحديقة"></div>
+        <div class="cap"><div><h4>غرفة لوكس</h4><p>سرير كينغ واحد</p></div><span class="view-tag">إطلالة على الحديقة</span></div>
+      </div>
+      <div class="room-card reveal">
+        <div class="frame"><img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_8287857:4by3?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=760&hei=570&qlt=85" alt="غرفة سوبيريور بإطلالة على المدينة"></div>
+        <div class="cap"><div><h4>غرفة سوبيريور</h4><p>سرير كينغ أو سريرين مفردين</p></div><span class="view-tag">إطلالة على المدينة</span></div>
+      </div>
+      <div class="room-card reveal">
+        <div class="frame"><img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_2475341:4by3?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=760&hei=570&qlt=85" alt="غرفة لوكس كلوب سوفيتيل"></div>
+        <div class="cap"><div><h4>لوكس كلوب سوفيتيل</h4><p>خدمات حصرية للنزلاء</p></div><span class="view-tag">إطلالة على المدينة</span></div>
+      </div>
+      <div class="room-card reveal">
+        <div class="frame"><img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_3613166:4by3?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=760&hei=570&qlt=85" alt="جناح جونيور"></div>
+        <div class="cap"><div><h4>جناح جونيور</h4><p>صالة جلوس منفصلة</p></div><span class="view-tag">حديقة أو مدينة</span></div>
+      </div>
+      <div class="room-card reveal">
+        <div class="frame"><img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_6588373:4by3?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=760&hei=570&qlt=85" alt="جناح بريستيج"></div>
+        <div class="cap"><div><h4>جناح بريستيج</h4><p>فخامة واسعة المساحة</p></div><span class="view-tag">حديقة أو مدينة</span></div>
+      </div>
+      <div class="room-card reveal">
+        <div class="frame"><img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_7393468:4by3?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=760&hei=570&qlt=85" alt="جناح الأوبرا"></div>
+        <div class="cap"><div><h4>جناح الأوبرا</h4><p>الخيار الأكثر تميزاً</p></div><span class="view-tag">سرير مزدوج</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DINING -->
+<section id="dining">
+  <div class="wrap">
+    <div class="eyebrow-line">المطاعم والحانات</div>
+    <h2 class="section-title">مزيج آسر من النكهات الفرنسية والجزائرية</h2>
+    <p class="section-lede">من الأناقة المغربية البيضاء في "الِمرجان" إلى كوكتيلات آرت ديكو في بار "الواحة" المطل على الخليج.</p>
+
+    <div class="dining-grid">
+      <div class="dine-card tall reveal">
+        <img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_9288517:3by2?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=900&hei=600&qlt=85" alt="مطعم الِمرجان للمأكولات الجزائرية">
+        <div class="dine-info">
+          <div class="kicker">مأكولات جزائرية أصيلة</div>
+          <h4>El Mordjane — الِمرجان</h4>
+          <p>أناقة مغربية بيضاء تتخللها لمسات لونية من الفن الأندلسي، وأطباق جزائرية أصيلة تُقدَّم بإطلالة مباشرة على حديقة التجارب.</p>
+        </div>
+      </div>
+      <div class="dine-card reveal">
+        <img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_3928967:3by2?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=700&hei=467&qlt=85" alt="مطعم لو ديفا العالمي">
+        <div class="dine-info">
+          <div class="kicker">مطبخ عالمي</div>
+          <h4>Le Difa — الضيافة</h4>
+          <p>بيسترو مريح في اللوبي بديكور أخضر يانع، وقائمة يومية تضم صيد اليوم الطازج.</p>
+        </div>
+      </div>
+      <div class="dine-card reveal">
+        <img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_8851321:3by2?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=700&hei=467&qlt=85" alt="بار الواحة آرت ديكو">
+        <div class="dine-info">
+          <div class="kicker">بار آرت ديكو منذ اللوبي</div>
+          <h4>Bar Oasis — الواحة</h4>
+          <p>كوكتيلات مميزة بفواكه الموسم وسط نوافذ زجاجية تطل على خليج الجزائر.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="zellige"></div>
+
+<!-- WELLNESS -->
+<section id="wellness" style="padding:0;">
+  <div class="wellness">
+    <div class="arch-wrap">
+      <div class="arch" style="border-radius:0 0 260px 0;">
+        <img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_1003474:4by3?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=900&hei=675&qlt=85" alt="مسبح فندق سوفيتيل الجزائر">
+      </div>
+    </div>
+    <div class="wellness-text">
+      <div class="eyebrow-line">العافية والاسترخاء</div>
+      <h2 class="section-title">مسبح لامتناهٍ، وهدوء لا حدود له</h2>
+      <p class="section-lede">استرخِ عند "Pool Lounge" اللامتناهي، أو استعد لياقتك في صالة رياضية مجهزة بالكامل تضم مسبحاً خارجياً مُدفّأ وساونا وشرفة تشمس.</p>
+      <ul class="wellness-list">
+        <li><span class="dot"></span><div><strong>المسبح اللامتناهي</strong><span>مساحة مخصصة للاسترخاء مع أطباق متوسطية وكوكتيلات منعشة.</span></div></li>
+        <li><span class="dot"></span><div><strong>مركز اللياقة</strong><span>مسبح خارجي مدفأ، منطقة استرخاء، ساونا، وشرفة تشمس.</span></div></li>
+        <li><span class="dot"></span><div><strong>سبا هادئ</strong><span>جلسات عناية جسدية تعيد إليك التوازن بعد يوم في صخب الجزائر.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events" class="events">
+  <div class="wrap">
+    <div class="eyebrow-line">المناسبات والأعراس</div>
+    <h2 class="section-title" style="margin:0 auto 20px;">مناسبات فاخرة تُروى لسنوات</h2>
+    <p class="section-lede">من الحفلات المؤسساتية الأنيقة إلى الأعراس التي تتوّج بليلة راقصة لا تُنسى، قاعاتنا مُصممة لتُدهش حتى 500 ضيف.</p>
+
+    <div class="events-grid">
+      <div class="event-card reveal">
+        <img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_7694783:4by3?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=700&hei=525&qlt=85" alt="قاعة أعراس فندق سوفيتيل الجزائر">
+        <h4>صالون جنان التجارب</h4>
+        <p>قاعتنا الكبرى التي تستقبل حتى 500 ضيف، مثالية للأعراس والحفلات الكبرى بديكور راقٍ وإضاءة مدروسة.</p>
+      </div>
+      <div class="event-card reveal">
+        <img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_2205802:4by3?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=700&hei=525&qlt=85" alt="قاعة مؤتمرات فندق سوفيتيل الجزائر">
+        <h4>قاعات الاجتماعات والمؤتمرات</h4>
+        <p>6 قاعات اجتماعات مجهزة بأحدث التقنيات لاستضافة فعالياتكم المهنية بأناقة واحترافية.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVE -->
+<section id="reserve" class="reserve">
+  <div class="wrap">
+    <div class="eyebrow-line">الحجز عن بُعد</div>
+    <h2 class="section-title">احجز إقامتك في دقيقة واحدة</h2>
+    <p class="section-lede" style="margin-bottom:46px;">عبّئ البيانات التالية وسيتواصل معك فريق الاستقبال لتأكيد حجزك، أو أكمل الحجز الفوري مباشرة عبر منصة سوفيتيل الرسمية.</p>
+
+    <div class="reserve-box reveal">
+      <div class="reserve-media">
+        <img src="https://m.ahstatic.com/is/image/accorhotels/HCM_P_7000412:4by3?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.5&wid=760&hei=1000&qlt=85" alt="فناء فندق سوفيتيل الجزائر">
+        <div class="quote">"إقامة تجمع بين رفاهية باريس وروح الجزائر الأصيلة."</div>
+      </div>
+      <form class="reserve-form" id="bookingForm">
+        <h3>نموذج طلب حجز</h3>
+        <p>هذا النموذج تجريبي ضمن العرض ولا يُرسل حجزاً فعلياً — لإتمام حجز حقيقي فوري، استخدم زر "الحجز المباشر عبر سوفيتيل" أدناه.</p>
+
+        <div class="form-row">
+          <div class="field"><label>تاريخ الوصول</label><input type="date" required></div>
+          <div class="field"><label>تاريخ المغادرة</label><input type="date" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>نوع الغرفة</label>
+            <select>
+              <option>غرفة سوبيريور</option>
+              <option>غرفة لوكس</option>
+              <option>جناح جونيور</option>
+              <option>جناح بريستيج</option>
+              <option>جناح الأوبرا</option>
+            </select>
+          </div>
+          <div class="field"><label>عدد النزلاء</label><input type="number" min="1" value="2" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>الاسم الكامل</label><input type="text" placeholder="اسمك الكامل" required></div>
+          <div class="field"><label>رقم الهاتف</label><input type="tel" placeholder="+213 ..." required></div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-solid">إرسال طلب الحجز</button>
+          <a class="btn" href="https://sofitel.accor.com/en/hotels/1540.html" target="_blank" rel="noopener">الحجز المباشر عبر سوفيتيل</a>
+        </div>
+        <div id="confirmMsg">تم استلام طلبك بنجاح — سيتواصل معك فريقنا خلال ٢٤ ساعة لتأكيد الحجز.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location" style="padding:0;">
+  <div class="location">
+    <div class="loc-info">
+      <div class="eyebrow-line">الموقع والتواصل</div>
+      <h2 class="section-title">في قلب النبض الأبيض للجزائر</h2>
+      <div class="loc-list">
+        <div><strong>العنوان</strong><span>172 شارع حسيبة بن بوعلي، الجزائر العاصمة 16015، الجزائر</span></div>
+        <div><strong>الهاتف</strong><span dir="ltr">+213 21 68 52 10</span></div>
+        <div><strong>البريد الإلكتروني</strong><span dir="ltr">h1540@sofitel.com</span></div>
+        <div><strong>بالقرب منك</strong><span>حديقة التجارب، المكتبة الوطنية، نصب الشهداء، متحف الفنون الجميلة</span></div>
+        <div><strong>المطار</strong><span>20 دقيقة من مطار هواري بومدين الدولي</span></div>
+      </div>
+      <a href="https://www.google.com/maps/dir//Sofitel+Algiers+Hamma+Garden,+172+rue+Hassiba+Benbouali,+ALGIERS,+ALGERIA,+16015,+ALGIERS,+Algeria/@36.750885,3.072301,17z" target="_blank" rel="noopener" class="btn btn-ghost-light" style="margin-top:34px;">احصل على الاتجاهات</a>
+    </div>
+    <div class="map-embed">
+      <iframe src="https://www.google.com/maps?q=36.750885,3.072301&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="brand">Sofitel Algiers</div>
+        <p style="max-width:320px; font-size:.9rem;">حَمّة جاردن — فندق خمس نجوم في قلب الجزائر العاصمة، بجانب حديقة التجارب النباتية.</p>
+        <div class="foot-social">
+          <a href="https://www.facebook.com/SofitelAlgiers" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+          <a href="https://www.instagram.com/sofitel_alger" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+      <div>
+        <p style="color:#c7c2b1; margin-bottom:10px;">روابط سريعة</p>
+        <div style="display:flex; flex-direction:column; gap:8px; font-size:.9rem;">
+          <a href="#rooms">الغرف والأجنحة</a>
+          <a href="#dining">المطاعم والحانات</a>
+          <a href="#events">المناسبات</a>
+          <a href="#reserve">الحجز</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Sofitel Algiers Hamma Garden. جميع الحقوق محفوظة.</span>
+      <span>تصميم غير رسمي لأغراض العرض — الصور من الموقع الرسمي لسلسلة سوفيتيل / أكور.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // header solid on scroll
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('solid', window.scrollY > 60);
+  });
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // demo booking form
+  document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('confirmMsg').style.display = 'block';
+    this.querySelectorAll('input, select').forEach(f => f.disabled = true);
+    this.querySelector('button[type="submit"]').textContent = 'تم الإرسال ✓';
+    this.querySelector('button[type="submit"]').disabled = true;
+  });
+</script>
+
+</body>
+</html>
